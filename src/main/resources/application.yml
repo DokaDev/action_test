@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: developer-shop
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+
+  mvc:
+    view:
+      prefix: /templates/
+      suffix: .html
+
+  # driver config
+  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://dokalab.asuscomm.com:50133/devshop
+    username: devshop
+    password: 1234
+    url: jdbc:log4jdbc:mysql://dokalab.asuscomm.com:50133/devshop
+
+# mybatis config
+mybatis:
+  mapper-locations: mappers/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true

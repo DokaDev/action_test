@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>board</title>
+    </head>
+    <body>
+        <!-- th:each로 테이블 출력 -->
+        <table border="1">
+            <tr>
+                <th>글번호</th>
+                <th>카테고리</th>
+                <th>글제목</th>
+                <th>작성자</th>
+                <th>조회수</th>
+                <th>작성일</th>
+            </tr>
+            <tr th:each="board : ${boardList}">
+                <td th:text="${board.boardNo}"></td>
+                <td th:text="${board.category}"></td>
+                <td>
+                    <!-- 글번호를 파라미터로 전달하여 상세보기 페이지로 이동 -->
+                    <a th:href="@{'/board/detail/' + ${board.boardNo}}" th:text="${board.title}"></a>
+                </td>
+                <td th:text="${board.writer}"></td>
+                <td th:text="${board.viewCnt}"></td>
+                <td th:text="${board.regDate}"></td>
+            </tr>
+    </body>
+</html>
